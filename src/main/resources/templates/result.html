@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Transactions</title>
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+
+<h3>Success :<span th:text="${success.size()}"></span></h3>
+
+<ol>
+    <li th:each="i:${success}">
+        <span th:text="${i.id}">id</span>
+    </li>
+</ol>
+
+<h3>Failed:<span th:text="${failure.size()}"></span></h3>
+<ol>
+    <li th:each="i:${failure}">
+        <span th:text="${i.id}">id</span>
+    </li>
+</ol>
+
+<h3>Pending :<span th:text="${pending.size()}"></span></h3>
+<ol>
+    <li th:each="i:${pending}">
+        <span th:text="${i.id}">id</span>
+    </li>
+</ol>
+<hr>
+<table>
+    <th>Merchant Name</th>
+    <th>Success</th>
+    <th>Failure</th>
+    <th>Pending</th>
+    <li th:each="i:${total}">
+        <tr>
+            <td><span th:text="${i.get(0)}"></span></td>
+            <td><span th:text="${i.get(1)}"></span></td>
+            <td><span th:text="${i.get(2)}"></span></td>
+            <td><span th:text="${i.get(3)}"></span></td>
+        </tr>
+    </li>
+</table>
+
+</body>
+</html>
